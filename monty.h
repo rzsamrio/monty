@@ -3,7 +3,6 @@
 
 #define ULIMIT 1024
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -11,6 +10,10 @@
 #include <sys/stat.h>
 #include <string.h>
 #include <fcntl.h>
+#include <ctype.h>
+
+
+extern char **lines;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -42,10 +45,12 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t dbase;
-
 char **read_file(char *filename);
-void validate(char **lines);
+void validate(char **arr);
 void trim(char **s);
+void push (stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void (*get_op(char *s, unsigned int n))(stack_t **, unsigned int);
+int checknum(char *s);
 
 #endif
