@@ -13,7 +13,7 @@ char **read_file(char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
-		fprintf(stderr, "Error: Can't open file %s", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 	len = read(fd, buffer, ULIMIT - 1);
