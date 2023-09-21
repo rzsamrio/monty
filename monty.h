@@ -42,10 +42,12 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t dbase;
+extern char **lines;
 
 char **read_file(char *filename);
 void validate(char **lines);
 void trim(char **s);
 
+void push (stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
 #endif
