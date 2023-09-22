@@ -16,6 +16,7 @@ void (*get_op(char *s, unsigned int n))(stack_t **, unsigned int)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 

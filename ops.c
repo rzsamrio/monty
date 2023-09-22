@@ -72,3 +72,22 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	printf("%d\n", curr->n);
 }
+
+/**
+ * pop - deletes the top stack
+ * @stack: top stack address
+ * @line_number: byte command line number
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *curr;
+
+	curr = *stack;
+	if (curr == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	*stack = (*stack)->next;
+	free(curr);
+}
