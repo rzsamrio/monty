@@ -55,5 +55,6 @@ void (*get_op(char *s, unsigned int n))(stack_t **, unsigned int);
 int checknum(char *s);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 
 #endif

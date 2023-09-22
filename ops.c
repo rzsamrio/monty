@@ -91,3 +91,33 @@ void pop(stack_t **stack, unsigned int line_number)
 	*stack = (*stack)->next;
 	free(curr);
 }
+
+/**
+ * swap - swaps the first 2 element in a stack
+ * @stack: top stack address
+ * @line_number: byte command line number
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	int i;
+	stack_t *curr, *first;
+
+	i = 1;
+	curr = *stack;
+	first = curr;	
+	while (i > 0)
+	{
+		if (curr == NULL)
+		{
+			fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+		curr = curr->next;
+		i--;
+	}
+	first->next = curr->next;
+	first->prev = curr;
+	curr->next = first;
+	curr->prev = NULL;
+	*stack = curr;
+}
