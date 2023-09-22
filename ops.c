@@ -104,7 +104,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	i = 1;
 	curr = *stack;
-	first = curr;	
+	first = curr;
 	while (i > 0)
 	{
 		if (curr == NULL)
@@ -121,3 +121,4 @@ void swap(stack_t **stack, unsigned int line_number)
 	curr->prev = NULL;
 	*stack = curr;
 }
+
