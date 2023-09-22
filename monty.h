@@ -45,6 +45,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void free_stack(stack_t **head);
 char **read_file(char *filename);
 void validate(char **arr);
 void trim(char **s);
@@ -52,5 +53,6 @@ void push (stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void (*get_op(char *s, unsigned int n))(stack_t **, unsigned int);
 int checknum(char *s);
+void pint(stack_t **stack, unsigned int line_number);
 
 #endif

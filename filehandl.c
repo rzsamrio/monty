@@ -1,13 +1,15 @@
 #include "monty.h"
 
 /**
- *
+ * read_file - reads input from a file
+ * @filename: name of file to read
+ * Return: returns an array of byte commands
  */
 
 char **read_file(char *filename)
 {
 	int i, fd, len, line_c;
-	char *tmp, buffer[ULIMIT], **arr;
+	char *tmp, buffer[ULIMIT], **arr = NULL;
 
 	/* Section reads the file into a buffer */
 	fd = open(filename, O_RDONLY);
@@ -20,7 +22,7 @@ char **read_file(char *filename)
 	buffer[len] = '\0';
 
 	/* Splits buffer into seperate arr */
-	for (i = 0, line_c = 1; buffer[i] != '\0'; i++) /* lc = 1, the def \0*/
+	for (i = 0, line_c = 0; buffer[i] != '\0'; i++) /* lc = 1, the def \0*/
 	{
 		if (buffer[i] == '\n')
 			line_c++;
@@ -35,7 +37,7 @@ char **read_file(char *filename)
 	for (i = 0; tmp != NULL; i++)
 	{
 		trim(&tmp);
-		arr[i] = tmp;
+		arr[i] = strdup(tmp);
 		tmp = strtok(NULL, "\n");
 	}
 	arr[line_c] = NULL;
@@ -44,7 +46,8 @@ char **read_file(char *filename)
 }
 
 /**
- *
+ * trim- trims white spaces
+ * @s: string to trim
  */
 
 void trim(char **s) /* working here */
